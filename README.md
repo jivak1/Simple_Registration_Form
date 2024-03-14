@@ -34,4 +34,11 @@ Here is my solution to the registration form task, it consists of three parts:
      . ValidationError represents each validation error
      . InputValidator validates all input and returns a list of validation errors (list might be empty if there are no errors)
 3) The MySQL DB server contains all user information and serves it to the backend surver upon request. It contains all JPA anotated fields.
+
+In order to start my application you shold: 
+   1) Go to the frontend directory with terminal and input the command: npm start
+   2) Go to the backend directory and start the backend server with the command: javac Main.java && java Main
+      - make sure to set up you sql server before launch of the backend
+      - input DB password in the persistance.xml
+      - input correct gmail credentials for the confirmation email sender inside the EmailSender class(including app password).
       
