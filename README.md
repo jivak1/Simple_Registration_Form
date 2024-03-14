@@ -1,5 +1,6 @@
 **Please oped the README file and read it as code!**
 
+```
 Here is my solution to the registration form task, it consists of three parts:
 1)A node.js frontend server that serves views to the user and makes fetch api calls to the backend server trough event listeners(js scripts inside the views).
 2)A java backend server that recieves HTTP requests on his endpoints, takes care of validation, login logic, email verification and persists user information to the sql server trough JPA.
@@ -43,4 +44,5 @@ In order to start my application you shold:
       - make sure to set up you sql server before launch of the backend
       - input DB password in the persistance.xml
       - input correct gmail credentials for the confirmation email sender inside the EmailSender class(including app password).
+```
       
