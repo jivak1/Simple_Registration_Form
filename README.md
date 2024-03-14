@@ -1,3 +1,5 @@
+**Please oped the README file and read it as code!**
+
 Here is my solution to the registration form task, it consists of three parts:
 1)A node.js frontend server that serves views to the user and makes fetch api calls to the backend server trough event listeners(js scripts inside the views).
 2)A java backend server that recieves HTTP requests on his endpoints, takes care of validation, login logic, email verification and persists user information to the sql server trough JPA.
