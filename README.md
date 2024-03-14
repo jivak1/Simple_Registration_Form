@@ -30,7 +30,7 @@ Here is my solution to the registration form task, it consists of three parts:
    - email directory includes the Email sender class, that sends account confirmation emails trough jakarta mail api with google as smtp server host.
    - model directory includes two entities - Base Entity and User Entitty, that are annotated with the appropriate JPA annotations
      . Base entity, that is inherited by all other entities and includes Id incrementation  logic
-     . User entity, that contains all user fielsd, that are persisted to the bd, including a active flag, that is set to true when the email is verified and the current session validation token, that is sent to the user in their most recent login.
+     . User entity, that contains all user fields, that are persisted to the bd, including a active flag, that is set to true when the email is verified and the current session validation token, that is sent to the user in their most recent login.
    - service directory includes the User service, that takes care of CRUD opperations to the DB trough JPA entity manager
    - utils directory includes utility class HTTPUtils, that provides additional CORS header attatchment and request body parsing logic
    - validation directory includes two classes - ValidationError and InputValidator
