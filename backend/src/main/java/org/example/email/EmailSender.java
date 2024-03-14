@@ -12,8 +12,8 @@ import java.util.Properties;
 
 public class EmailSender {
     private static final Properties PROPERTIES = new Properties();
-    private static final String USERNAME = "verificator48@gmail.com";
-    private static final String PASSWORD = "uuusjogcgupohgmq";
+    private static final String USERNAME = "validator email";
+    private static final String PASSWORD = "app-password";
 
     static {
         PROPERTIES.put("mail.smtp.host", "smtp.gmail.com");
