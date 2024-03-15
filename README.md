@@ -1,4 +1,4 @@
-**Please oped the README file and read it as code!**
+**Please open the README file and read it as code!**
 
 ```
 Here is my solution to the registration form task, it consists of three parts:
