@@ -9,10 +9,10 @@ import java.io.IOException;
 import jakarta.mail.MessagingException;
 import org.example.utils.HttpUtils;
 import org.example.validation.InputValidator;
-import org.example.validation.ValidationError;
 import org.example.email.EmailSender;
 import org.example.model.UserEntity;
 import org.example.service.UserService;
+import org.example.validation.ValidationError;
 import org.json.* ;
 
 import javax.persistence.EntityManager;
@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 public class RegisterController implements HttpHandler {
     private UserService userService ;
 
-    //construcotr creates a user service with the needed entity manager
+    //constructor creates a user service with the needed entity manager
     public RegisterController(){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("MainPersistenceUnit");
 
