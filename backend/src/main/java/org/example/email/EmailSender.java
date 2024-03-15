@@ -13,8 +13,8 @@ import java.util.Properties;
 public class EmailSender {
     private static final Properties PROPERTIES = new Properties();
     private static final String USERNAME = "validator email";
-    private static final String PASSWORD = "app-password";
-
+    private static final String PASSWORD = "app-password"; //in account security settings inside 2factor authentication you should generate an app password. Don't ask me why it's there, but it took an hour to find.
+    //sets properties for gmail SMTP host
     static {
         PROPERTIES.put("mail.smtp.host", "smtp.gmail.com");
         PROPERTIES.put("mail.smtp.port", "587");
@@ -23,16 +23,17 @@ public class EmailSender {
     }
 
     public static void sendVerificationEmail(String from, String to, String subject, String messageBody) throws MessagingException {
+        //authenticates sender gmail
         Authenticator authenticator = new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(USERNAME, PASSWORD);
             }
         };
-
+        //creates session with properties and the authenticator
         Session session = Session.getInstance(PROPERTIES, authenticator);
 
         MimeMessage message = new MimeMessage(session) ;
-
+        //adds email elements - from, to sent date etc...
         try {
             message.setFrom(new InternetAddress(from));
 
@@ -48,18 +49,18 @@ public class EmailSender {
             throw new RuntimeException(e);
         }
 
-
+        //magic o_0
         Multipart multipart = new MimeMultipart();
         MimeBodyPart mimeBodyPart = new MimeBodyPart() ;
 
-
+        ///sets encoding for message body
         mimeBodyPart.setText(messageBody, "us-ascii");
 
-
+        //more magic o_0
         multipart.addBodyPart(mimeBodyPart);
-
         message.setContent(multipart);
 
+        //sends email
         Transport.send(message);
 
     }

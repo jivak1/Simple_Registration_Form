@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
+//entity class annotated with JPA annotations for columns in the database
 @Getter
 @Setter
 @NoArgsConstructor

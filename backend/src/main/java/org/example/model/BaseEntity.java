@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-
+//base entity class, inherited by other entities in the model. Handles id generation logic
 @Getter
 @MappedSuperclass
 public abstract class BaseEntity {
