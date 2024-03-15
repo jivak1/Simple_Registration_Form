@@ -40,7 +40,7 @@ Here is my solution to the registration form task, it consists of three parts:
 
 In order to start my application you should: 
    1) Go to the frontend directory with terminal and input the command: npm start
-   2) Go to the backend directory backend/src/main/java/org/example/ and start the backend server with the command "mvn clean install" and than run the jar file with java, specifiying the main class
+   2) Go to the backend directory backend/src/main/java/org/example/ and start the backend server with the command "mvn clean install" and than run the jar file with java, specifiying the main class or better open the backend project with an ide and run it from there.
       - make sure to set up you SQL server before launch of the backend
       - input DB password in the persistence.xml
       - input correct Gmail credentials for the confirmation email sender inside the EmailSender class(including app password).
