@@ -1,5 +1,6 @@
-
+//attatches header to all views + adds event handlers for logout button 
 async function loadHeader(){
+    //hetches header html and attatches it to the view
     await fetch("header.html")
     .then(response => response.text())
     .then(html => {
@@ -9,9 +10,10 @@ async function loadHeader(){
     })
 
     let logoutButton = document.getElementById("logout") ;
-
+    //adds event listener
     logoutButton.addEventListener("click", logoutEventLoader) ;
 
+    //event handler clears session variables and logs out the user
     function logoutEventLoader(){
         sessionStorage.clear() ;
 
@@ -20,7 +22,7 @@ async function loadHeader(){
 
 
 }
-
+//hides or displays elements based on user login
 function hideMenu(){
     let home = document.getElementById("home") ;
     let proile = document.getElementById("profile") ;
@@ -32,7 +34,7 @@ function hideMenu(){
 
 
 
-
+    //checks session verification token and displays content based or user authentication
     if(sessionStorage.getItem("sessionVerificationToken") === null){
         home.style.display = "none" ;
         shop.style.display = "none" ;
@@ -43,6 +45,6 @@ function hideMenu(){
         login.style.display = "none" ;
     }
 }
-
+//export tools to other js scripts
 export { loadHeader, hideMenu };
 

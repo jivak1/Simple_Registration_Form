@@ -8,8 +8,9 @@ function attatchEvents(){
     let confirmPasswordField = document.getElementById("confirmPassword")
     let emailField = document.getElementById("email") ;
 
+    //adds event listener
     editProfileButton.addEventListener("click", editProfileEventLoader) ;
-
+    //event listener renders user input to json, makes PUT request and handles backend HTTP response
     function editProfileEventLoader(event){
         let userToUpdate = {} ;
 
@@ -18,7 +19,6 @@ function attatchEvents(){
         userToUpdate.confirmPassword = confirmPasswordField.value ;
         userToUpdate.emailToEdit = emailField.value ;
        
-
         if(sessionStorage.getItem("sessionVerificationToken") !== null){
 
             userToUpdate.sessionVerificationToken = sessionStorage.getItem("sessionVerificationToken") ;
@@ -34,7 +34,7 @@ function attatchEvents(){
 
             userToUpdate.email = "" ;
         }
-
+        //fetch PUT request to backend endpoint
         fetch("http://localhost:8000/edit-profile", {
             method: "PUT",
             headers: {
@@ -43,18 +43,20 @@ function attatchEvents(){
             },
             body: JSON.stringify(userToUpdate)
         })
-        .then(async response => {
+        .then(async response => { //handles response and displays validation errors if any
             switch(response.status){
                 case 200:
+                    //session storage email is updated(if its the same as before there is no bug, it just puts the same one)
                     sessionStorage.setItem("email", emailField.value) ;
 
+                    //redirect to index if user edit is complete
                     window.location.href = "http://localhost:8080";
                     break ;
-                case 400:
+                case 400: //on 400 it displays validation errors
                     let responseText = await response.text();
                     let responseJson = JSON.parse(responseText);
                     let errors = responseJson.errors[0];
-
+                    //appends validation errors to errors window container
                     let errorsWindow = document.createElement("div") ;
                     errorsWindow.className = "errors-window"
                     errors.forEach(element => {
@@ -65,9 +67,9 @@ function attatchEvents(){
                         errorsWindow.appendChild(errorDiv) ;
                     });
                     
-                    
+                    //appends errors window to edit form
                     editProfileForm.appendChild(errorsWindow) ;
-
+                    //removes validation error fields after  seconds
                     setTimeout(() => {
                         errorsWindow.remove();
                     }, 5000);
@@ -78,7 +80,7 @@ function attatchEvents(){
         })
     }
 }
-
+//adds header
 loadHeader().then(hideMenu) ;
-
+//attatches events
 attatchEvents() ;
