@@ -2,7 +2,6 @@ package org.example.validation;
 
 import org.example.model.UserEntity;
 import org.example.service.UserService;
-import org.example.validation.ValidationError;
 import org.json.JSONObject;
 
 import javax.persistence.EntityManager;
@@ -22,13 +21,16 @@ public class InputValidator {
         String username = userInput.getString("username");
         String password = userInput.getString("password");
         String confirmPassword = userInput.getString("confirmPassword");
-        String email = userInput.has("emailToEdit") ? userInput.getString("emailToEdit") : userInput.getString("email");
+        String emailToEdit = userInput.has("emailToEdit") ? userInput.getString("emailToEdit") : userInput.getString("email");
+        String email = userInput.getString("email") ;
+
 
         validationErrors.add(validateUsername(username));
         validationErrors.add(validatePassword(password)) ;
         validationErrors.add(validateConfirmPassword(confirmPassword)) ;
         validationErrors.add(validateConfirmPasswordAndPasswordMatch(password, confirmPassword));
-        validationErrors.add(validateEmail(email));
+        validationErrors.add(validateEmail(emailToEdit)) ;
+
 
         if(userInput.has("sessionVerificationToken")){
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("MainPersistenceUnit");
