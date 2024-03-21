@@ -13,7 +13,7 @@ import java.util.Properties;
 public class EmailSender {
     private static final Properties PROPERTIES = new Properties();
     private static final String USERNAME = "validator email";
-    private static final String PASSWORD = "app-password"; //in account security settings inside 2factor authentication you should generate an app password. Don't ask me why it's there, but it took an hour to find.
+    private static final String PASSWORD = "app-password";
     //sets properties for gmail SMTP host
     static {
         PROPERTIES.put("mail.smtp.host", "smtp.gmail.com");

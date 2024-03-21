@@ -2,8 +2,8 @@ package org.example.controllers;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
-import org.example.utils.HttpUtils;
 import org.example.validation.InputValidator;
+import org.example.utils.HttpUtils;
 import org.example.validation.ValidationError;
 import org.example.model.UserEntity;
 import org.example.service.UserService;
